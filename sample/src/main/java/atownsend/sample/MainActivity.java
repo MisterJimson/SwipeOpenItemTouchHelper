@@ -8,6 +8,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import atownsend.swipeopenhelper.SimpleCallback;
 import atownsend.swipeopenhelper.SwipeOpenItemTouchHelper;
 
 /**
@@ -26,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements TestAdapter.Butto
 
     final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
     adapter = new TestAdapter(this, false, this);
-    helper = new SwipeOpenItemTouchHelper(new SwipeOpenItemTouchHelper.SimpleCallback(
+    helper = new SwipeOpenItemTouchHelper(new SimpleCallback(
         SwipeOpenItemTouchHelper.START | SwipeOpenItemTouchHelper.END));
 
     recyclerView.setLayoutManager(new LinearLayoutManager(this));

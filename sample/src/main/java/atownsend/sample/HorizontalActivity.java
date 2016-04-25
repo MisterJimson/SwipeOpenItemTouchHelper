@@ -8,6 +8,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
+
+import atownsend.swipeopenhelper.SimpleCallback;
 import atownsend.swipeopenhelper.SwipeOpenItemTouchHelper;
 
 
@@ -28,7 +30,7 @@ public class HorizontalActivity extends AppCompatActivity implements TestAdapter
 
     final RecyclerView recyclerView = (RecyclerView) findViewById(atownsend.sample.R.id.recycler_view);
     adapter = new TestAdapter(this, true, this);
-    SwipeOpenItemTouchHelper helper = new SwipeOpenItemTouchHelper(new SwipeOpenItemTouchHelper.SimpleCallback(
+    SwipeOpenItemTouchHelper helper = new SwipeOpenItemTouchHelper(new SimpleCallback(
         SwipeOpenItemTouchHelper.UP | SwipeOpenItemTouchHelper.DOWN));
 
     recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
