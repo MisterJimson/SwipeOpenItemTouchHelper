@@ -2,7 +2,6 @@ package atownsend.swipeopenhelper;
 
 import android.support.v4.animation.AnimatorCompatHelper;
 import android.support.v4.animation.AnimatorListenerCompat;
-import android.support.v4.animation.AnimatorUpdateListenerCompat;
 import android.support.v4.animation.ValueAnimatorCompat;
 import android.support.v4.view.ViewCompat;
 
@@ -45,11 +44,7 @@ public class RecoverAnimation implements AnimatorListenerCompat {
         mTargetX = targetX;
         mTargetY = targetY;
         mValueAnimator = AnimatorCompatHelper.emptyValueAnimator();
-        mValueAnimator.addUpdateListener(new AnimatorUpdateListenerCompat() {
-            @Override public void onAnimationUpdate(ValueAnimatorCompat animation) {
-                setFraction(animation.getAnimatedFraction());
-            }
-        });
+        mValueAnimator.addUpdateListener(new SwipeAnimatorUpdateListenerCompat(this));
         mValueAnimator.setTarget(viewHolder.getViewHolder().itemView);
         mValueAnimator.addListener(this);
         setFraction(0f);
